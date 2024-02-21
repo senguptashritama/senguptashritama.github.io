@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+  <nav id="desktop-nav">
+    <div class="logo">My Portfolio</div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#Services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <nav id="hamburger-nav">
+    <div class="logo">Shritama Sengupta</div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-links">
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </div>
+    </div>
+  </nav>
+  <section id="profile">
+    <div class="section__pic-container">
+        <img src="assets\57805586.jpeg" alt="John Doe profile picture">
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Shritama Sengupta</h1>
+        <p class="section__text__p2">Data Scientist / Analyst</p>
+        <div class="btn-container">
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+        </div>
+        <div id="socials-container">
+          <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/shritama-sengupta-141615187/'">
+          <img src="./assets/github.png" alt="My Github profile" class="icon" onclick="location.href='https://github.com/codeforever200'">
+        </div>
+      </div>
+  </section>
+  <section id="about">
+    <p class="section__text__p1">Get To Know More</p>
+    <h1 class="title">About Me</h1>
+    <div class="section-container">
+      <div class="section__pic-container">
+        <img src="assets\mee.png" alt="Profile picture" class="about-pic">
+      </div>
+      <div class="about-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <img src="./assets/experience.png" alt="Experience icon" class="icon">
+            <h3>Experience</h3>
+            <p>3+ Relevent Internships</p>
+          </div>
+          <div class="details-container">
+            <img src="./assets/education.png" alt="Education icon" class="icon">
+            <h3>Education</h3>
+            <p>Bachelor of Computer Applications<br> M.Sc. Data Science</p>
+          </div>
+        </div>
+        <div class="text-container">
+          <p>
+            Hello! I'm Shritama Sengupta, a passionate and dedicated data scientist.
+            With a strong academic background and hands-on experience in the field of data science,
+            I bring a blend of technical expertise and innovative thinking to every project I undertake.<br><br>
+            I'm fervently dedicated to translating data into actionable insights that 
+            drive strategic decision-making. With expertise in Machine Learning, Deep Learning, and Statistics, 
+            I specialize in extracting meaningful insights from complex datasets. My goal is to innovate and optimize processes,
+            unlocking value for organizations in today's data-driven landscape. Passionate about pushing the boundaries of AI, 
+            I thrive on exploring new frontiers, from natural language processing to computer vision.<br><br>
+
+            <b><em>"Data is the new oil. It’s valuable, but if unrefined it cannot really be used."</em> - Clive Humby</b>
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#Services'">
+  </section>
+  <section id="Services">
+    <p class="section__text__p1">Explore My</p>
+    <h1 class="title">Services</h1>
+    <div class="experience-details-container wider-container">
+      <div class="about-containers">
+        <div class="details-container">
+          <h2 class="experience-sub-title">Data Analysis and Visualization:</h2>
+          <div class="article-container">
+            <p>Offer data analysis services to extract insights from raw data using statistical techniques, 
+              machine learning algorithms, and visualization tools like Tableau or Power BI. Provide clients with actionable 
+            </p>
+          </div>
+        </div>
+        <div class="details-container">
+          <h2 class="experience-sub-title">Predictive Modeling:</h2>
+          <div class="article-container">
+            <p>Develop predictive models to forecast future trends, identify patterns, and make data-driven predictions. Offer services in regression analysis, classification, and time series forecasting to help businesses optimize operations, anticipate customer behavior, and mitigate risks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-containers">
+        <div class="details-container">
+          <h2 class="experience-sub-title">Machine Learning Solutions:</h2>
+          <div class="article-container">
+            <p>Build custom machine learning solutions tailored to clients' specific needs, such as recommendation systems, fraud detection algorithms, or customer segmentation models. Utilize libraries like Scikit-learn, TensorFlow, or PyTorch to develop and deploy machine learning models.</p>
+          </div>
+        </div>
+        <div class="details-container">
+          <h2 class="experience-sub-title">Natural Language Processing (NLP):</h2>
+          <div class="article-container">
+            <p>Provide NLP services to analyze and extract insights from unstructured text data, such as social media posts, customer reviews, or news articles. Offer sentiment analysis, topic modeling, text summarization, and entity recognition to help clients understand and leverage textual data.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-containers">
+        <div class="details-container">
+          <h2 class="experience-sub-title">Big Data Analytics:</h2>
+          <div class="article-container">
+            <p>Assist clients in managing and analyzing large volumes of structured and unstructured data using big data technologies like Hadoop, Spark, or Apache Flink. Offer services in data preprocessing, ETL (Extract, Transform, Load) pipelines, and real-time data processing to extract valuable insights from big data sources.</p>
+          </div>
+        </div>
+        <div class="details-container">
+          <h2 class="experience-sub-title">Project Management and Implementation:</h2>
+          <div class="article-container">
+            <p>Manage end-to-end data science projects from problem definition to solution deployment. Lead cross-functional teams, define project milestones, and ensure timely delivery of high-quality solutions that meet clients' objectives and requirements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#projects'">
+  </section>
+  <section id="projects">
+    <p class="section__text__p1">Browse My Recent</p>
+    <h1 class="title">Projects</h1>
+    <div class="experience-details-container wider-container">
+      <div class="about-containers">
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="assets\proj1.webp" alt="Project 1" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">Banking Recovery Analysis</h2>
+          <p> Evaluated the cost-effectiveness and the incremental impact of recovery strategies in a bank's debt collection
+            by applying extensive EDA, statistical tests and regression discontinuity. </p><br>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/codeforever200/Optimizing-Debt-Collection-with-Regression-Discontinuity'">Github</button>
+          </div>
+        </div>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="assets\chatbot.jpg" alt="Project 2" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">SummarizeChatVision</h2>
+          <p>A multimedia AI app for summarizing youtube video content integrated with responsive chatbot 
+            to enable dynamic user interactions with video content.
+            Powered by language models and a compelling easy to use front-end.  </p><br>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/codeforever200/SummarizeChatVision'">Github</button>
+          </div>
+        </div>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="assets\bitcoin.jpg" alt="Project 3" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">Cryptocurrency Price Forecasting</h2>
+          <p>
+            Leveraged BitMEX API for real-time data retrieval, performed stationarity checks, and employed LSTM, GRU, 
+            and XGBoost models to analyze cryptocurrency markets, 
+            providing valuable insights into model efficacy.
+            </p><br>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/codeforever200/Crypto_Currency_Forecasting_and_Analsysis'">Github</button>
+          </div>
+        </div>
+      </div>
+      <div class="about-containers">
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="assets\startup.webp" alt="Project 4" class="project-img" />
+          </div>
+          <h3 class="experience-sub-title project-title">Startup Funding Trend Analysis</h3>
+          <p>Used Tableau to create an interactive dashboard providing
+             insightful overview on Startup funding pattern in India over the years.
+            Employed statistical tools, ANOVA and regression analysis, to identify key factors influencing 
+            funding outcomes in the startup ecosystem</p><br>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/codeforever200/Indian_Startup_Funding_Analysis'">Github</button>
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://public.tableau.com/app/profile/shritama.sengupta/viz/Indian_Startup_Funding_Trend/Overall2'">Live Demo</button>
+          </div>
+        </div>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="assets\cc.avif" alt="Project 5" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">Credit Card Launch Analysis</h2>
+          <p> Developed a PowerBI report for a bank's new credit card launch,providing demographic classification, 
+            spending insights, and income utilization metrics. 
+            Delivered concise, data-driven recommendations to boost credit card usage based on market trends.</p><br>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/codeforever200/Credit-Card-Launch-PowerBI'">Github</button>
+          </div>
+        </div>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="assets\taxi.avif" alt="Project 6" class="project-img" />
+          </div>
+          <h2 class="experience-sub-title project-title">End-to-End Data Engineering</h2>
+          <p>Built a data pipeline on Google Cloud, utilizing GCS, Compute Engine, and BigQuery for efficient storage and retrieval. 
+            Used Mage for precise ETL to structure flat files, resulting in an interactive dashboard for data visualization.
+            </p><br>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/codeforever200/data-engineering-gcp-project'">Github</button>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#blogs'">
+  </section>
+  <section id="blogs">
+    <p class="section__text__p1">Check Out My Latest</p>
+    <h1 class="title">Blogs</h1>
+    <div class="blogs-container">
+      <div class="blog-box">
+        <h2 class="blog-title">Decoding Transformers: The Language Model Revolution</h2>
+        <p class="blog-content">Positional Encoding, Self-attention, Encoder-Decoder</p>
+        <button class="btn btn-color-2 blog-btn" onclick="location.href='https://medium.com/@shritamasengupta9541/decoding-transformers-the-language-model-revolution-ee2a17309c21'">Read More</button>
+      </div>
+      <div class="blog-box">
+        <h2 class="blog-title">FIFA 22 Dataset: Principal Component and Clustering Analysis</h2>
+        <p class="blog-content">This article explores the ways in which one can derive patterns from high-dimensional and unlabelled data in a simple and beginner-friendly manner.</p>
+        <button class="btn btn-color-2 blog-btn" onclick="location.href='https://www.linkedin.com/pulse/fifa-22-dataset-principal-component-clustering-shritama-sengupta%3FtrackingId=uXM%252FCDRYtgBXQBtM7YBkwA%253D%253D/?trackingId=uXM%2FCDRYtgBXQBtM7YBkwA%3D%3D'">Read More</button>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'">
+  </section>
+  <section id="contact">
+    <p class="section__text__p1">Get in Touch</p>
+    <h1 class="title">Contact Me</h1>
+    <div class="contact-info-upper-container">
+      <div class="contact-info-container">
+        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+        <p><a href="mailto:senguptashritama@gmail.com">senguptashritama@gmail.com</a></p>
+      </div>
+      <div class="contact-info-container">
+        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+        <p><a href="https://www.linkedin.com/in/shritama-sengupta-141615187/">LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#Services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
