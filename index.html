@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shritama Sengupta - Data Scientist Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style> 
+        :root {
+            --primary-color: #123157;
+            --secondary-color: #8e0b21;
+            --accent-color: #8e0b21;
+            --text-color: #444447;
+            --bg-color: #EAEAEA;
+            --hover-color: #823333; /* Bright red for hover effects */
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        header {
+            background: linear-gradient(to right, red, blue);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        header .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .profile-picture {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-picture:hover img {
+            transform: scale(1.1);
+        }
+
+        .about-content {
+            flex-grow: 1;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .quick-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .info-item i {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        .education {
+            margin-top: 20px;
+        }
+
+        .education ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .education li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .education li:hover {
+            transform: translateX(5px);
+        }
+
+        .education .institution,
+        .education .year {
+            display: block;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+
+        body {
+            transition: margin-right 0.3s ease;
+        }
+
+        .skills-toggle {
+            position: fixed;
+            right: 20px;
+            top: 50%; /* Keeps the "View Skills" button centered vertically */
+            transform: translateY(-50%) rotate(-90deg);
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+            z-index: 1100; /* Increased z-index to ensure it remains above the new sidebar icons */
+        }
+
+        .skills-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100%;
+            background-color: var(--light-accent);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .skills-sidebar.open {
+            right: 0;
+        }
+
+        .close-skills {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill {
+            background: transparent;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .skill:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Aligns project titles to the left */
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-box {
+            border: 0px solid #ccc;
+            border-radius: 1px; /* Removes rounding for sharper edges */
+            margin: 10px 0;
+            padding: 20px;
+            background-color: #fff;
+            /* Updated shadow with deeper effect */
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Darker and more prominent shadow */
+            transition: transform 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: translateY(-5px);
+            /* Optional: Add a stronger shadow on hover for more depth */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .project-content {
+            text-align: center; /* Centers content within the box */
+        }
+
+        .project-title {
+            text-align: left; /* Aligns titles to the left */
+            margin: 0; /* Remove default margins */
+            font-size: 1.5rem; /* Title font size */
+            color: var(--primary-color); /* Title color */
+            text-align: center;
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-image {
+            width: 100%; /* Keep this to make the image fill the width of the project box */
+            height: 200px; /* Set a fixed height to maintain a consistent size */
+            border-radius: 20px; /* Optional: matches the box's border-radius */
+            margin-bottom: 1rem; /* Adds some spacing below the image */
+            object-fit: cover; /* Ensures the image covers the container without distortion */
+        }
+
+        .project-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-button:hover {
+            background-color: var(--hover-color);
+        }
+
+        .filter {
+            margin-bottom: 20px; /* Space below filter buttons */
+        }
+
+        .tag {
+            margin: 0 5px; /* Space between tags */
+            cursor: pointer;
+            padding: 8px 12px;
+            background-color: var(--secondary-color); /* Button color */
+            color: white; /* Text color */
+            border: none;
+            border-radius: 30px;
+            font-size: .8rem; /* Increased font size */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .tag:hover {
+            background-color: var(--secondary-color); /* Darker color on hover */
+            transform: scale(1.05); /* Slightly increase size on hover */
+        }
+
+        .tag:focus {
+            outline: none; /* Remove default outline */
+        }
+   
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .experience-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: calc(50% - 40px);
+            box-sizing: border-box;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -56px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .experience-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .experience-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .experience-item:nth-child(even)::after {
+            left: -16px;
+        }
+
+        .experience-item .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .experience-item .content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .experience-item .duration {
+            font-style: italic;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .project-summary {
+            margin-top: 15px;
+        }
+
+        .project-summary h4 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .view-details {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-details:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Blogs Section Styling */
+        #blogs {
+            padding: 5rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        #blogs:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .blog-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px; /* Slightly increased padding for better spacing */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Increased shadow for a more prominent effect */
+            flex-basis: calc(45% - 20px); /* Widen the boxes */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* Enhanced shadow effect on hover */
+        }
+
+        .blog-title {
+            font-size: 1.2rem; /* Maintain smaller title size */
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-subheading {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .read-more-button:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Social Links Sidebar Styling */
+        .social-links-sidebar {
+            position: fixed;
+            left: 20px;
+            top: calc(50% + 60px); /* Position it directly below the "View Skills" button */
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000; /* Lower z-index for icons so they don’t overlap with "View Skills" */
+        }
+
+        .social-icon {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
+
+        .social-icon i {
+            font-size: 1.2rem;
+        }
+
+
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .experience-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .experience-item::after {
+                left: 15px;
+            }
+            
+            .experience-item:nth-child(even) {
+                left: 0%;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border: none;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        input, textarea {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 2rem;
+            }
+            
+            .quick-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .skills-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .skills-toggle {
+                right: 0;
+                transform: translateY(-50%);
+                border-radius: 5px 0 0 5px;
+            }
+
+            .project {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        main {
+            transition: margin-right 0.3s ease; /* Adjusts when the sidebar is toggled */
+        }
+
+        /* Animated background for header */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white; 
+            background: linear-gradient(-45deg, #e86d81 0%, #bf4f4f 40%, #47a0c1 70%, #1f6bb1 100%);
+            background-size: 400% 400%; /* Enable background movement */
+            animation: gradientBG 7s ease infinite; /* Set animation for the background */
+        }
+
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+
+        
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="content">
+            <h1>Shritama Sengupta</h1>
+            <p>Data Scientist | Machine Learning Engineer | AI Enthusiast</p>
+        </div>
+    </header>
+    
+    <nav>
+        <button id="open-skills" class="skills-toggle">View Skills</button>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills" onclick="document.getElementById('open-skills').click();">Skills</a></li> <!-- This will open the skills sidebar -->
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="social-links-sidebar">
+            <a href="mailto:senguptashritama@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/shritama-sengupta-141615187/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/senguptashritama" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about">
+            <div class="about-container">
+                <div class="profile-picture">
+                    <img src="assets\profpic.jpg" alt="Your Name">
+                </div>
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <p class="intro">Hello! I'm <span class="highlight">Shritama Sengupta</span>, a data scientist and AI enthusiast who thrives at the intersection of creativity and cutting-edge technology.</p>
+                    
+                    <div class="quick-info">
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Msc. Data Science</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>3+ Relevant Internships</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-code"></i>
+                            <span>5+ Certifications</span>
+                        </div>
+                    </div>
+                    
+                    <p>I don't just crunch numbers – I craft narratives from noise, turning complex datasets into strategic insights. I approach each project with enthusiasm, combining technical expertise with strategic thinking to deliver results that matter.</p><br>
+                   <p>I thrive in collaborative environments where I can contribute fresh perspectives and learn from others. My goal is to push the boundaries of what's possible with data, always with an eye on practical, impactful outcomes.</p>
+                    
+                    <div class="education">
+                        <h3>Education</h3>
+                        <br>
+                        <ul>
+                            <li>
+                                <strong>Msc. Data Science</strong>
+                                <span class="institution">Vellore Institute of Technology - AP</span>
+                                <span class="institution">8.94 CGPA</span>
+                                <span class="year">2022 - 2024</span>
+                            </li>
+                            <li>
+                                <strong>Bachelor of Computer Applications</strong>
+                                <span class="institution">Symbiosis Institute of Computer Studies and Research</span>
+                                <span class="institution">8.45 CGPA</span>
+                                <span class="year">2019 - 2022</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#contact" class="cta-button">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="experience-item">
+                    <div class="content">
+                        <h3>AI Intern - Isnartech Pvt Ltd</h3>
+                        <p class="duration">Jan 2024 - June 2024</p>
+                        <div class="project-summary">
+                            <h4>Automated Document-Based Form Filling</h4>
+                            <p>Developed an AI-powered feature for ERP systems to automate form filling using information from official documents.</p>
+                            <button class="view-details" data-target="isnartech-project1">View Details</button>
+                        </div>
+                <div class="project-summary" id="isnartech-project1" style="display: none;">
+                    <h3>Overview</h3>
+                    <p>Developed an advanced AI-powered feature for an Enterprise Resource Planning (ERP) system to automate form filling using information extracted from official documents like certificates and transcripts.</p>
+                    <br>
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Automated data extraction from various document types</li>
+                        <li>Handling of diverse document layouts and terminologies</li>
+                        <li>Integration of OCR and state-of-the-art language models</li>
+                        <li>Significant reduction in manual data entry</li>
+                    </ul>
+                    <br>
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li>Document Preprocessing: Enhanced image quality for accurate text extraction</li>
+                        <li>OCR Integration: Utilized DocTR for efficient text extraction from images and PDFs</li>
+                        <li>LLM Training: Employed GEMINI framework for dataset creation and fine-tuned Gemma model for information extraction</li>
+                        <li>Web Interface: Developed a user-friendly interface for document upload and analysis</li>
+                    </ul>
+                    <br>
+                    <h3>Outcomes</h3>
+                    <ul>
+                        <li>Streamlined administrative processes in educational institutions</li>
+                        <li>Improved data accuracy and processing efficiency</li>
+                        <li>Enhanced user experience through automated form filling</li>
+                    </ul>
+                    <br>
+                    <h3>Technologies Used</h3>
+                    <ul>
+                        <li><strong style="color: var(--primary-color);">Python (PIL, pandas, transformers)</strong></li>
+                        <li><strong style="color: var(--primary-color);">OCR (DocTR)</strong></li>
+                        <li><strong style="color: var(--primary-color);">Large Language Models (GEMINI, Gemma)</strong></li>
+                        <li><strong style="color: var(--primary-color);">Web Technologies (Flask)</strong></li>
+                    </ul>
+                    <br>
+                    <p>This project showcases the integration of advanced AI techniques to solve real-world data processing challenges in educational administration.</p>
+                </div>
+
+                <div class="project-summary">
+                    <h4>Global Financial Trends Analysis with PowerBI</h4>
+                    <p>Offered insights into global financial dynamics, technological evolution, and socio-economic trends, aiding strategic decisions in finance and technology.</p>
+                    <button class="view-details" data-target="isnartech-project2">View Details</button>
+                </div>
+                <div class="project-summary" id="isnartech-project2" style="display: none;">
+                <h4>Overview</h4>
+                    <p>Advanced analytics of global financial trends across 161 countries, focusing on remittances, mobile adoption, digital payments, and tech readiness. Aims to uncover drivers of financial inclusion and economic development in the digital age.</p>
+                    <br>
+                    <h4>Key Features</h4>
+                    <ul>
+                    <li>Remittance Flow Analysis: Global mapping revealing economic dependencies.</li>
+                    <li>Mobile Technology Penetration: Demographic-specific adoption rates analysis.</li>
+                    <li>Digital Payment Ecosystem: Growth patterns and barriers in fintech landscape.</li>
+                    <li>Tech Readiness Index: Country-level capacity for emerging tech integration.</li>
+                    </ul>
+                    <br>
+                    <h4>Technical Implementation</h4>
+                    <ul>
+                    <li>Data Sourcing: Collected public datasets on financial flows and technology usage.</li>
+                    <li>PowerBI Visualizations: Created interactive dashboards for analysis.</li>
+                    <li>Statistical Analysis: Analyzed correlations between remittance patterns and digital payment adoption.</li>
+                    </ul>
+                    <br>
+                    <h4>Outcomes</h4>
+                    <ul>
+                    <li>Identified critical remittance corridors for targeted financial services.</li>
+                    <li>Quantified mobile penetration impact on digital payment adoption.</li>
+                    <li>Showcased the disparities in technology readiness across countries.</li>
+                    </ul>
+                    <br>
+                    <h4>Technologies and Algorithms Used</h4>
+                    <ul>
+                        <li><strong style="color: var(--primary-color);">ML - PCA, K-means, ARIMA, Prophet, Random Forest, XGBoost</strong></li>
+                        <li><strong style="color: var(--primary-color);">PowerBI</strong></li>
+                        <li><strong style="color: var(--primary-color);">Python</strong></li>
+                        <li><strong style="color: var(--primary-color);"></strong>SQL</strong></li>
+                        
+                    </ul>
+                    <br>
+                    <p>Delivered actionable insights for strategic planning in the evolving digital economy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="content">
+                    <div class="project-summary">
+                        <h4>Classroom Lecture Monitoring System</h4>
+                        <p>An innovative system that harnesses AI-driven audio and sentiment analysis to evaluate teaching effectiveness and boost student engagement.</p>
+                        <button class="view-details" data-target="isnartech-project3">View Details</button>
+                    </div>
+            <div class="project-details" id="isnartech-project3" style="display: none;">
+                <h4>Overview</h4>
+                <p>Developed a comprehensive AI-powered system for Teaching Quality Analysis that integrates audio and transcript data to evaluate teaching performance effectively.</p>
+                <br>
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Audio analysis differentiating between teacher and student voices.</li>
+                    <li>Assessment of teacher's vocal attributes (pitch, energy, speaking rate).</li>
+                    <li>Sentiment analysis to gauge emotional tone and mood during lessons.</li>
+                    <li>Transcript evaluation for key term extraction and inappropriate language detection.</li>
+                    <li>Concise summary generation of taught concepts for quick review.</li>
+                </ul>
+                <br>
+                <h4>Technical Implementation</h4>
+                <ul>
+                    <li>Audio Processing: Utilized Librosa for feature extraction and pyannote for speaker diarization.</li>
+                    <li>Sentiment Analysis: Employed Random Forest classifiers for emotional tone detection.</li>
+                    <li>Transcript Analysis: Integrated models for summarization and keyword extraction.</li>
+                    <li>Web Interface: Developed a user-friendly Flask application for audio and transcript uploads.</li>
+                </ul>
+                <br>
+                <h4>Outcomes</h4>
+                <ul>
+                    <li>Enhanced educational outcomes through actionable insights for educators</li>
+                    <li>Improved understanding of classroom dynamics and instruction effectiveness</li>
+                    <li>Facilitated timely feedback and interventions to refine teaching methodologies</li>
+                </ul>
+                <br>
+                <h4>Technologies and Algorithms</h4>
+                <ul>
+                    <li><strong style="color: var(--primary-color);">Python - Flask, Librosa, Pyannote, Transformers</strong></li>
+                    <li><strong style="color: var(--primary-color);">Machine Learning -Random Forest</strong></li>
+                    <li><strong style="color: var(--primary-color);">NLP Models - Pegasus, KeyBERT, DistilBERT</strong></li>
+                    <li><strong style="color: var(--primary-color);">HuggingFace</strong></li>
+                    <li><strong style="color: var(--primary-color);">MLops - MLFlow</strong></li>
+                </ul>
+                <br>
+                <p>This project showcases the integration of advanced AI techniques to enhance educational assessment and support continuous improvement in teaching quality.</p>
+            </div>
+            <div class="project-summary">
+                <h4>Advanced NL-to-SQL, Query Based Solution</h4>
+                <p>Optimized data operations by converting user queries into SQL commands for seamless database interaction and informed decision-making.</p>
+                <button class="view-details" data-target="isnartech-project4">View Details</button>
+            </div>
+            <div class="project-summary" id="isnartech-project4" style="display: none;">
+                <h4>Overview</h4>
+                <p>Developed a web application that leverages fine-tuned Large Language Models (LLMs) to convert natural language queries into SQL commands for seamless interaction with MySQL databases.</p>
+                <br>
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Automated transformation of natural language into SQL queries</li>
+                    <li>Intuitive user interface for query input and execution</li>
+                    <li>Integration of advanced LLMs for enhanced query accuracy</li>
+                    <li>Visualization of databases and schemas for user insights</li>
+                </ul>
+                <br>
+                <h4>Technical Implementation</h4>
+                <ul>
+                    <li>Data Preparation: Sourced training data from Hugging Face.</li>
+                    <li>Model Fine-Tuning: Used PEFT with LoRA to optimize LLM.</li>
+                    <li>Web Interface: Created a user-friendly app for natural language queries.</li>
+                </ul>
+                <br>
+                <h4>Outcomes</h4>
+                <ul>
+                    <li>Simplified database interactions for users,</li>
+                    <li>Improved efficiency and accuracy in retrieving data from structured databases.</li>
+                    <li>Enhanced user experience with natural language querying capabilities.</li>
+                </ul>
+                <br>
+                <h4>Technologies Used</h4>
+                <ul>
+                    <li><strong style="color: var(--primary-color);">Large Language Models (PEFT, LoRA)</strong></li>
+                    <li><strong style="color: var(--primary-color);">SQLlite</strong></li>
+                    <li><strong style="color: var(--primary-color);">Streamlit</strong></li>
+                    <li><strong style="color: var(--primary-color);">MLops - MLFlow</strong></li>
+                </ul>
+                <br>
+                <p>This project demonstrates the application of advanced NLP techniques to improve user interactions with databases, making data retrieval more accessible and intuitive.</p>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="experience-item">
+                <div class="content">
+                    <h3>Project Intern - iNeuron</h3>
+                    <p class="duration">August 2023 - October 2023</p>
+                    <div class="project-summary">
+                        <h4>Medical Prescription Reading</h4>
+                        <p>AI-powered healthcare application aimed at assisting visually impaired patients in managing their medications.</p>
+                        <button class="view-details" data-target="companyB-project1">View Details</button>
+                    </div>
+            <div class="project-summary" id="companyB-project1" style="display: none;">
+                <h4>Overview</h4>
+                <ul>
+                    <li>Developed an AI-driven app to empower visually impaired patients in medication management. Utilizes computer vision and OCR to interpret prescriptions and medicine labels, converting visual data into accessible audio instructions.</li>
+                </ul>
+                <br>
+                <h4>Key Features</h4>
+                <ul>
+                    <li>YOLO-based OCR: 94% accuracy in text extraction from 5,000+ medical documents.</li>
+                    <li>Image Upload: User-friendly interface for prescription and medicine photo capture/upload.</li>
+                    <li>Audio Conversion: Real-time text-to-speech for medication instructions.</li>
+                </ul>
+                <br>
+                <h4>Outcomes</h4>
+                <ul>
+                    <li>Enhanced patient independence in medication management.</li>
+                    <li>Improved healthcare decision confidence</li>
+                </ul>
+                <br>
+                <h4>Technologies Used</h4>
+                <ul>
+                    <li><strong style="color: var(--primary-color);">YOLO (You Only Look Once)</strong></li>
+                    <li><strong style="color: var(--primary-color);">Text-to-Speech (TTS)</strong></li>
+                    <li><strong style="color: var(--primary-color);">GCP (Google Cloud Platform)</strong></li>
+                    <li><strong style="color: var(--primary-color);">Flask</strong></li>
+                </ul>
+                <br>
+                <p>Revolutionizes medication accessibility, promoting autonomy and safety for visually impaired patients.</p>
+
+            </div>
+        </div>
+    </div>   
+            <div class="experience-item">
+                <div class="content">
+                    <h3>Data Science Intern- Metaverse Ventures</h3>
+                    <p class="duration">March 2023 - June 2023</p>
+                    <div class="project-summary">
+                        <h4>Smart Product Analytics and Market Strategy</h4>
+                            <p>Comprehensive solution for market analysis, price prediction, and strategy optimization across multiple product categories.</p>
+                            <button class="view-details" data-target="companyC-project1">View Details</button>
+                        </div>  
+                <div class="project-summary" id="companyC-project1" style="display: none;">
+                    <h4>Overview</h4>
+                    <p>Provided insights into the market dynamics of products like Mobile Phones and Cosmetics. Predicted product prices, found similar products, compared features, estimated costs, and created content for marketing purposes to support manufacturers in making data-driven decisions and improving strategies.</p>
+                    <br>
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Price Prediction: Uses regression models to predict product prices based on features.</li>
+                        <li>Product Similarity: Employs clustering and similarity search to find similar products.</li>
+                        <li>Content Generation: Utilizes RAG models to generate marketing content.</li>
+                        <li>Cost & Profit Analysis: Estimates manufacturing costs and profitability metrics.</li>
+                    </ul>
+                    <br>
+                    <h4>Technical Implementation</h4>
+                    <ul>
+                        <li>Data collection and preprocessing for products.</li>
+                        <li>Regression models like Random Forest and XGBoost for price prediction.</li>
+                        <li>RAG models for content generation and cost analysis.</li>
+                        <li>Similarity search using clustering and cosine similarity for product recommendations.</li>
+                    </ul>
+                    <br>
+                    <h4>Outcomes</h4>
+                    <ul>
+                        <li>Accurate price predictions for Mobile Phones (R2: 0.92) and Cosmetics (R2: 0.50).</li>
+                        <li>Identification of similar products within a cluster.</li>
+                        <li>Automatic generation of marketing content and profitability estimation.</li>
+                    </ul>
+                    <br>
+                    <h4>Technologies Used</h4>
+                    <ul>
+                        <li><strong style="color: var(--primary-color);">Machine Learning Models - Random Forest, XGBoost</strong></li>
+                        <li><strong style="color: var(--primary-color);">RAG Models (Retrieval-Augmented Generation)</strong></li>
+                        <li><strong style="color: var(--primary-color);">NLP - Similarity search and feature extraction.</strong></li>
+            
+                    </ul>
+                    <br>
+                    <p>A comprehensive solution for market analysis, price prediction, and strategy optimization across multiple product categories.</p>
+                </div>
+
+                <div class="project-summary">
+                    <h4>Intelligent Partner Selection & Performance Tracking</h4>
+                        <p>Enhanced partner selection using predictive analytics and PowerBI dashboarding.</p>
+                        <button class="view-details" data-target="companyC-project2">View Details</button>
+                    </div>  
+                    <div class="project-summary" id="companyC-project2" style="display: none;">
+                    <h4>Overview</h4>
+                    <p>This project focused on enhancing partner selection through predictive analytics and improving business strategy effectiveness with a dynamic KPI dashboard.</p>
+                    <br>
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Predictive analytics models for partner selection</li>
+                        <li>Statistical analysis of partnership success factors</li>
+                        <li>Dynamic KPI dashboard built with PowerBI</li>
+                        <li>Real-time performance tracking and visualization</li>
+                    </ul>
+                    <br>
+                    <h4>Technical Implementation</h4>
+
+                    <ul>
+                        <li>Development and optimization of predictive analytics models.</li>
+                        <li>Statistical analysis to identify key partnership success factors.</li>
+                        <li>Creation of an interactive PowerBI dashboard for KPI visualization.</li>
+                        </ul>
+                    <br>
+                    <h4>Outcomes</h4>
+                    <ul>
+                        <li>25% increase in successful provider collaborations</li>
+                        <li>Improved accuracy in partner selection by 15%</li>
+                        <li>Enhanced business strategy effectiveness through data-driven insights</li>
+                        <li>Faster identification of high-potential partners</li>
+                    </ul>
+                    <br>
+                    <h4>Technologies Used</h4>
+                    <ul>
+                        <li><strong style="color: var(--primary-color);">Python - pandas, scikit-learn, numpy</strong></li>
+                        <li><strong style="color: var(--primary-color);">SQL</strong></li>
+                        <li><strong style="color: var(--primary-color);">PowerBI</strong></li>
+                        <li><strong style="color: var(--primary-color);">Git version control</strong></li>
+                        <li><strong style="color: var(--primary-color);">Azure</strong></li>
+                    </ul>
+                    <br>
+                    <p>This project successfully leveraged predictive analytics and PowerBI dashboarding to significantly improve partner selection and collaboration outcomes, driving business growth through data-driven decision-making.</p>
+                    </div>
+                </div> 
+            </div> 
+
+                <div class="experience-item">
+                    <div class="content">
+                        <h3>Data Mining Intern - Informatica Group</h3>
+                        <p class="duration">February 2022 - July 2022</p>
+                        <div class="project-summary">
+                            <h4>Automated Data Pipeline</h4>
+                            <p>Streamlining data collection and enhancing data accuracy through web scraping techniques.</p>
+                            <button class="view-details" data-target="companyD-project1">View Details</button>
+                        </div>
+                        <div class="project-details" id="companyD-project1" style="display: none;">
+                            <h4>Overview</h4>
+                            <p>Automated data collection and improved ETL processes for cloud SQL databases using web scraping techniques.</p>
+                            <br>
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Web scraping scripts using Beautiful Soup and Selenium</li>
+                                <li>Automated data collection from online sources</li>
+                                <li>Enhanced ETL processes for cloud SQL databases</li>
+                                <li>Improved data accuracy and maintenance efficiency</li>
+                            </ul>
+                            <br>
+                            <h4>Technical Implementation</h4>
+                            <ul>
+                                <li>Developed web scraping scripts with Beautiful Soup and Selenium</li>
+                                <li>Automated data extraction from various online sources</li>
+                                <li>Optimized ETL processes for cloud SQL databases</li>
+                                <li>Implemented data quality checks and error handling</li>
+                            </ul>
+                            <br>
+                            <h4>Outcomes</h4>
+                            <ul>
+                                <li>15% improvement in data accuracy</li>
+                                <li>Increased maintenance efficiency</li>
+                                <li>Streamlined data collection process</li>
+                                <li>Enhanced data quality in cloud SQL databases</li>
+                            </ul>
+                            <br>
+                            <h4>Technologies Used</h4>
+                            <ul>
+                                <li><strong style="color: var(--primary-color);">Python - Beautiful Soup, Selenium</strong></li>
+                                <li><strong style="color: var(--primary-color);">SQL</strong></li>
+                                <li><strong style="color: var(--primary-color);">Azure Data Storage</strong></li>
+                                <li><strong style="color: var(--primary-color);">ETL tools</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="project-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2 id="modal-title"></h2>
+                        <div id="modal-body"></div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="projects">
+            <div class="projects">
+                <h2>Projects</h2>
+                <div class="filter">
+                    <button class="tag" onclick="filterProjects('all')">All</button>
+                    <button class="tag" onclick="filterProjects('nlp')">NLP</button>
+                    <button class="tag" onclick="filterProjects('stats')">Statistical Analysis</button>
+                    <button class="tag" onclick="filterProjects('genai')">Generative AI</button>
+                    <button class="tag" onclick="filterProjects('computer-vision')">Computer Vision</button>
+                    <button class="tag" onclick="filterProjects('dash')">Dashboarding</button>
+
+                </div>
+                
+                <div class="projects-container">
+                    <div class="project-box" data-tags="stats">
+                        <img src="assets/proj1.webp" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Banking Recovery Analysis</h3>
+                            <p>Evaluated the cost-effectiveness and the incremental impact of recovery strategies in a bank's debt collection by applying extensive EDA, statistical tests, and regression discontinuity.</p>
+                            <a href="https://github.com/senguptashritama/Optimizing-Debt-Collection-with-Regression-Discontinuity" class="project-button">Github</a>
+                        </div>
+                    </div>
+        
+                    <div class="project-box" data-tags="nlp genai">
+                        <img src="assets\chatbot.jpg" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">SummarizeChatVision</h3>
+                            <p>A multimedia AI app for summarizing YouTube video content integrated with a responsive chatbot to enable dynamic user interactions with video content. Powered by language models and a compelling easy-to-use front-end.</p>
+                            <a href="https://github.com/senguptashritama/SummarizeChatVision" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+                    <div class="project-box" data-tags="stats">
+                        <img src="assets\bitcoin.jpg" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Cryptocurrency Price Forecasting</h3>
+                            <p>Leveraged BitMEX API for real-time data retrieval, performed stationarity checks, and employed LSTM, GRU, and XGBoost models to analyze cryptocurrency markets, providing valuable insights into model efficacy.</p>
+                            <a href="https://github.com/senguptashritama/Crypto_Currency_Forecasting_and_Analsysis" class="project-button">Github</a>
+                        </div> 
+                    </div>
+
+                    <div class="project-box" data-tags="nlp genai">
+                        <img src="assets\paper.png" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Multilabel Classification of Research Papers</h3>
+                            <p>This project tackles the challenge of automatically categorizing research papers based on their titles and summaries using advanced machine learning techniques like SVM, Random Forest, and LSTM models.</p>
+                            <a href="https://github.com/senguptashritama/Multilabel-Classification-of-ResearchPapers" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+                    <div class="project-box" data-tags="stats dash">
+                        <img src="assets\startup.webp" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Startup Funding Trend Analysis</h3>
+                            <p>Used Tableau to create an interactive dashboard providing insightful overview on Startup funding pattern in India over the years. Employed statistical tools, ANOVA and regression analysis, to identify key factors influencing funding outcomes in the startup ecosystem.</p>
+                            <a href="https://github.com/senguptashritama/Indian_Startup_Funding_Analysis" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+                    <div class="project-box" data-tags="stats dash">
+                        <img src="assets\credit.webp" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Credit Card Launch Analysis</h3>
+                            <p>Developed a PowerBI report for a bank's new credit card launch,providing demographic classification, spending insights, and income utilization metrics. Delivered concise, data-driven recommendations to boost credit card usage based on market trends.</p>
+                            <a href="https://github.com/senguptashritama/Credit-Card-Launch-PowerBI" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+                    <div class="project-box" data-tags="dash">
+                        <img src="assets\taxi.avif" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">End-to-End Data Engineering</h3>
+                            <p>Built a data pipeline on Google Cloud, utilizing GCS, Compute Engine, and BigQuery for efficient storage and retrieval. Used Mage for precise ETL to structure flat files, resulting in an interactive dashboard for data visualization.</p>
+                            <a href="https://github.com/senguptashritama/data-engineering-gcp-project" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+                    <div class="project-box" data-tags="nlp genai">
+                        <img src="assets\cables.jpg" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Electrical PDFs Classification System</h3>
+                            <p>Categorized electrical manuals into categories like cables, fuses, lighting and others using advanced SVM and DistilBERT models. With its sleek Streamlit app, users can effortlessly organize complex files, making document sorting faster and more accurate.</p>
+
+                            <a href="https://github.com/senguptashritama/Eletrical_PDFs_Classification_System" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+                    <div class="project-box" data-tags="computer-vision">
+                        <img src="assets\kidney.jpg" alt="Project Image" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Kidney Disease Image Classification</h3>
+                            <p>Employed VGG16 to detect kidney abnormalities from medical images and deployed on AWS for scalability. With CI/CD pipelines automating updates, it ensures seamless, high-performance diagnostics for real-world healthcare applications.</p>
+                            <a href="https://github.com/senguptashritama/Kidney_Disease_Classification" class="project-button">Github</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section id="blogs">
+            <h2>Blogs</h2>
+            <div class="blog-container">
+                <div class="blog-item">
+                    <h3 class="blog-title">Decoding Transformers: The Language Model Revolution</h5>
+                    <p class="blog-subheading">Positional Encoding, Self-attention, Encoder-Decoder</p>
+                    <a href="https://medium.com/@shritamasengupta9541/decoding-transformers-the-language-model-revolution-ee2a17309c21" class="read-more-button">Read More</a>
+                </div>
+        
+                <div class="blog-item">
+                    <h5 class="blog-title">FIFA 22 Dataset: Principal Component and Clustering Analysis</h5>
+                    <p class="blog-subheading">This article explores the ways in which one can derive patterns from high-dimensional and unlabelled data in a simple and beginner-friendly manner.</p>
+                    <a href="https://www.linkedin.com/pulse/fifa-22-dataset-principal-component-clustering-shritama-sengupta%3FtrackingId=uXM%252FCDRYtgBXQBtM7YBkwA%253D%253D/?trackingId=uXM%2FCDRYtgBXQBtM7YBkwA%3D%3D" class="read-more-button">Read More</a>
+                </div>
+
+        </section>
+        
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/shritama-sengupta-141615187"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/senguptashritama"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.view-details').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+            const projectTitle = this.parentElement.querySelector('h4').textContent;
+            const projectDetails = document.getElementById(targetId).innerHTML;
+
+            // Set modal content
+            modalTitle.textContent = projectTitle;
+            modalBody.innerHTML = projectDetails;
+
+            // Scroll to the Experience section
+            document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+
+            // Display the modal
+            modal.style.display = 'block';
+
+            // Add transition class for smooth appearance
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        });
+    });
+
+
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.querySelector('.modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const closeModal = document.querySelector('.close-modal');
+
+        document.querySelectorAll('.view-details').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const projectTitle = this.parentElement.querySelector('h4').textContent;
+                const projectDetails = document.getElementById(targetId).innerHTML;
+                
+                modalTitle.textContent = projectTitle;
+                modalBody.innerHTML = projectDetails;
+                
+                // Position the modal near the clicked button
+                const rect = this.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                modalContent.style.top = `${rect.bottom + scrollTop}px`;
+                modalContent.style.left = `${rect.left}px`;
+                
+                // Show modal
+                modal.style.display = 'block';
+                
+                // Use setTimeout to ensure the transition happens
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+            });
+        });
+
+
+        function hideModal() {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Match this to your transition duration
+        }
+
+        closeModal.onclick = hideModal;
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                hideModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                hideModal();
+            }
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+
+<div id="skills-sidebar" class="skills-sidebar">
+    <button id="close-skills" class="close-skills">&times;</button>
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill-category">
+            <h3>Languages</h3>
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">SQL</span>
+                <span class="skill">R</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Machine Learning & Deep Learning</h3>
+            <div class="skills">
+                <span class="skill">Regression</span>
+                <span class="skill">Classification</span>
+                <span class="skill">Clustering</span>
+                <span class="skill">Neural Networks</span>
+                <span class="skill">CNNs</span>
+                <span class="skill">RNNs</span>
+                <span class="skill">TensorFlow</span>
+                <span class="skill">PyTorch</span>
+                <span class="skill">Keras</span>
+                <span class="skill">Scikit-learn</span>
+                <span class="skill">NumPy</span>
+                <span class="skill">Pandas</span>
+                <span class="skill">NLP</span>
+                <span class="skill">LLMs</span>
+                <span class="skill">Computer Vision</span>
+                <span class="skill">Generative AI</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Visualization & Big Data</h3>
+            <div class="skills">
+                <span class="skill">Matplotlib</span>
+                <span class="skill">Seaborn</span>
+                <span class="skill">Tableau</span>
+                <span class="skill">PowerBI</span>
+                <span class="skill">Hadoop</span>
+                <span class="skill">Spark</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>MLops and Cloud services</h3>
+            <div class="skills">
+                <span class="skill">MLFlow</span>
+                <span class="skill">Azure</span>
+                <span class="skill">GCP</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Adjust main content width on sidebar toggle
+    document.getElementById('open-skills').addEventListener('click', function() {
+        document.getElementById('skills-sidebar').classList.add('open');
+        document.querySelector('main').style.marginRight = '400px'; // Shifts main content to the left
+    });
+
+    document.getElementById('close-skills').addEventListener('click', function() {
+        document.getElementById('skills-sidebar').classList.remove('open');
+        document.querySelector('main').style.marginRight = '0'; // Resets main content
+    });
+</script>
+
+
+</body>
+</html>
